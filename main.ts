@@ -255,7 +255,7 @@ class PhraseSyncSuggest extends EditorSuggest<IndexEntry> {
 
         // Split sentence into words with indices
         const wordsWithIndices: { word: string, start: number, end: number }[] = [];
-        let wordRegex = /\b\w[\w\p{L}\p{N}'-]*\b/gu;
+        let wordRegex = /[\p{L}\p{M}\p{Pc}\p{Nd}'\-]+/gu;
         let match;
         while ((match = wordRegex.exec(sentence)) !== null) {
             wordsWithIndices.push({ word: match[0], start: match.index, end: match.index + match[0].length });
